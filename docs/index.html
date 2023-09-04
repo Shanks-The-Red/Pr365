@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="app">
+        <t-layout>
+            <t-header>
+                <t-head-menu value="item1" height="120px">
+                    <template #logo>
+                        <img width="136" class="logo" alt="logo" />
+                    </template>
+                    <t-menu-item value="item1"> 已选内容 </t-menu-item>
+                    <t-menu-item value="item2"> 菜单内容一 </t-menu-item>
+                    <t-menu-item value="item3"> 菜单内容二 </t-menu-item>
+                    <t-menu-item value="item4" :disabled="true"> 菜单内容三 </t-menu-item>
+                    <template #operations>
+                        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search" /></a>
+                        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="notification-filled" /></a>
+                        <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="home" /></a>
+                    </template>
+                </t-head-menu>
+            </t-header>
+            <t-layout>
+                <t-aside style="border-top: 1px solid #fff">
+                    <t-menu theme="light" value="dashboard" style="margin-right: 50px" height="550px">
+                        <t-menu-item value="dashboard">
+                            <template #icon>
+                                <t-icon name="dashboard" />
+                            </template>
+                            仪表盘
+                        </t-menu-item>
+                        <t-menu-item value="resource">
+                            <template #icon>
+                                <t-icon name="server" />
+                            </template>
+                            资源列表
+                        </t-menu-item>
+                        <t-menu-item value="root">
+                            <template #icon>
+                                <t-icon name="root-list" />
+                            </template>
+                            根目录
+                        </t-menu-item>
+                        <t-menu-item value="control-platform">
+                            <template #icon>
+                                <t-icon name="control-platform" />
+                            </template>
+                            调度平台
+                        </t-menu-item>
+                        <t-menu-item value="precise-monitor">
+                            <template #icon>
+                                <t-icon name="precise-monitor" />
+                            </template>
+                            调度平台
+                        </t-menu-item>
+                        <t-menu-item value="mail">
+                            <template #icon>
+                                <t-icon name="mail" />
+                            </template>
+                            消息区
+                        </t-menu-item>
+                        <t-menu-item value="user-circle">
+                            <template #icon>
+                                <t-icon name="user-circle" />
+                            </template>
+                            个人中心
+                        </t-menu-item>
+                        <t-menu-item value="play-circle">
+                            <template #icon>
+                                <t-icon name="play-circle" />
+                            </template>
+                            视频区
+                        </t-menu-item>
+
+                        <t-menu-item value="edit1">
+                            <template #icon>
+                                <t-icon name="edit-1" />
+                            </template>
+                            资源编辑
+                        </t-menu-item>
+                    </t-menu>
+                </t-aside>
+                <t-layout>
+                    <t-content style="padding: 10px; height: calc(100% - 40px)">
+                        <t-space direction="vertical">
+                            <t-row
+                                :gutter="[
+                                { xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 },
+                                { xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 40 },
+                              ]"
+                            >
+                                <t-col v-for="i in 15" :key="i" :span="3">
+                                    <t-card :cover="cover" theme="poster2">
+                                        <template #footer>
+                                            <t-comment avatar="https://tdesign.gtimg.com/site/avatar-boy.jpg" author="标题" content="卡片内容" />
+                                        </template>
+                                    </t-card>
+                                </t-col>
+                            </t-row>
+                        </t-space>
+
+                    </t-content>
+                    <t-footer style="text-align: center">
+                        © 2009-2023 gkdaxue.com 版权所有。<a href="https://beian.miit.gov.cn/" target="_blank">皖ICP备18018266号-1</a>
+                    </t-footer>
+                </t-layout>
+            </t-layout>
+        </t-layout>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
+    <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
+    <script type="module">
+        const { createApp } = Vue;
+        const app = createApp({
+            data() {
+                return {
+                    cover: 'https://tdesign.gtimg.com/site/source/card-demo.png',
+                };
+            },
+        });
+
+        // 组件使用国际化语言, 使用中文
+        app.use(TDesign);
+
+        app.mount("#app");
+    </script>
+</body>
+</html>
